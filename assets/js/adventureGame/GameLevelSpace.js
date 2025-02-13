@@ -18,7 +18,7 @@ class GameLevelSpace {
     const image_data_space = {
         name: 'space',
         greeting: "Ah, the vast expanse of space... Endless possibilites",
-        src: image_src_desert,
+        src: image_src_space,
         pixels: {height: 580, width: 1038}
     };
 
@@ -54,6 +54,7 @@ class GameLevelSpace {
         SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
         pixels: {height: 256, width: 256},
+        INIT_POSITION: { x: (width / 4), y: (height / 4)},
         orientation: {rows: 4, columns: 4 },
         down: {row: 0, start: 0, columns: 4 },
         left: {row: 1, start: 0, columns: 4 },
@@ -89,7 +90,7 @@ class GameLevelSpace {
         SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
         pixels: {height: 301, width: 801},
-        INIT_POSITION: { x: (width / 4), y: (height / 4)},
+        INIT_POSITION: { x: (width / 2), y: (height / 2)},
         orientation: {rows: 1, columns: 4 },
         down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.1 },
@@ -175,9 +176,9 @@ const sprite_data_htmlhank = {
 
     // List of objects defnitions for this level
     this.objects = [
-      { class: Background, data: image_data_desert },
+      { class: Background, data: image_data_space },
       { class: Player, data: sprite_data_chillguy },
-      { class: Npc, data: sprite_data_tux },
+      { class: Npc, data: sprite_data_ditto },
       { class: Npc, data: sprite_data_octocat },
       { class: Npc, data: sprite_data_robot },
      // { class: Npc, data: sprite_data_htmlhank }, 
@@ -186,4 +187,4 @@ const sprite_data_htmlhank = {
 
 }
 
-export default GameLevelDesert;
+export default GameLevelSpace;
