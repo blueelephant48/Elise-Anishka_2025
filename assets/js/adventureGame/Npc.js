@@ -4,10 +4,9 @@ import Prompt from "./Prompt.js";
 class Npc extends Character {
     constructor(data = null) {
         super(data);
-        this.quiz = data?.quiz?.title; // Quiz title
-        this.questions = Prompt.shuffleArray(data?.quiz?.questions || []); // Shuffle questions
-        this.currentQuestionIndex = 0; // Start from the first question
-        this.alertTimeout = null;
+        this.name = data?.name || "Random NPC";
+        this.hint = data?.hint || "Hello, adventurer!"; // default hint
+        this.hintKey = data?.hintKey || 69; // makes default key "E"
         this.bindInteractKeyListeners();
     }
     /**
@@ -28,25 +27,23 @@ class Npc extends Character {
      * Handle keydown events for interaction.
      * @param {Object} event - The keydown event.
      */
-    handleKeyDown({ key }) {
-        switch (key) {
-            case 'e': // Player 1 interaction
-            case 'u': // Player 2 interaction
+    handleKeyDown({ keyCode }) {
+        if (keyCode === this.hintKey) {// Player 1 interaction
                 this.handleKeyInteract();
-                break;
         }
     }
     /**
      * Handle keyup events to stop player actions.
      * @param {Object} event - The keyup event.
      */
-    handleKeyUp({ key }) {
-        if (key === 'e' || key === 'u') {
+    handleKeyUp({ keyCode }) {
+        switch (keyCode) {
+            case this.keypress.hint:
             // Clear any active timeouts when the interaction key is released
-            if (this.alertTimeout) {
-                clearTimeout(this.alertTimeout);
-                this.alertTimeout = null;
-            }
+                if (this.alertTimeout) {
+                    clearTimeout(this.alertTimeout);
+                    this.alertTimeout = null;
+                }
         }
     }
  
@@ -54,17 +51,18 @@ class Npc extends Character {
      * Handle proximity interaction and share a quiz.
      */
     handleKeyInteract() {
-        const players = GameEnv.gameObjects.filter(obj => obj.state.collisionEvents.includes(this.spriteData.id));
-        const hasQuestions = this.questions.length > 0;
-        if (players.length > 0 && hasQuestions) {
-            players.forEach(player => {
-                if (!Prompt.isOpen) {
-                    // Assign this NPC as the current NPC in the Prompt system
-                    Prompt.currentNpc = this;
-                    // Open the Prompt panel with this NPC's details
-                    Prompt.openPromptPanel(this);
-                }
-            });
+        const hintBox = document.getElementById("hint-box");
+        const hintText = document.getElementById("hint-text");
+
+        if (hintBox && hintText) {
+            hintText.innerText = `${this.name || "NPC"}: "${this.hint}"`;
+            hintText.classList.remove("hidden");
+            hintBox.style.display = "block";
+
+            document.getElementById("hint-close").onclick = () => {
+                hintBox.classList.add("hidden");
+                hintBox.style.display = "none";
+            }
         }
     }
 

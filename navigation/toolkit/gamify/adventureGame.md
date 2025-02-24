@@ -77,6 +77,37 @@ permalink: /gamify/adventureGame
     color: black;
     z-index: 1001;
 }
+
+#hint-box {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#hint-box.hidden {
+    display: none;
+}
+
+#hint-close {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 </style>
 
 <!-- Score & Stats -->
@@ -102,6 +133,11 @@ permalink: /gamify/adventureGame
 <div id="npcTrackerPopup">
     <h2>NPCs Met:</h2>
     <ul id="npcTrackerList"></ul>
+</div>
+
+<div id="hint-box" class="hidden">
+    <p id="hint-text"></p>
+    <button id="hint-close">Close</button>
 </div>
 
 <script type="module">
