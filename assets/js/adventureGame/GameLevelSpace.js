@@ -100,7 +100,7 @@ class GameLevelSpace {
       id: "Pink_Meteor",
       name: 'Pink Meteor',
       hintKey: 77,
-      hint: "Hint for something here",
+      hint: "I am four letters long, I can be seen in the sky, I am the ocean & I am the C.",
       greeting:
         "Hiiiiii!!!",
       src: sprite_src_pink,
@@ -117,7 +117,7 @@ class GameLevelSpace {
     const sprite_data_purple = {
       id: "Purple_Meteor",
       greeting:
-        "Hi I am Robot, the Jupyter Notebook mascot.  I am very happy to spend some linux shell time with you!",
+        "Hello!",
       src: sprite_src_purple,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
@@ -132,8 +132,11 @@ class GameLevelSpace {
     const sprite_src_blue = path + "/images/gamify/blue_meteor.png"; // be sure to include the path
     const sprite_data_blue = {
       id: "Blue_Meteor",
+      name: 'Blue Meteor',
+      hintKey: 67,
+      hint: "Press b to finish the game! Byeee!!!",
       greeting:
-        "Hi I am Robot, the Jupyter Notebook mascot.  I am very happy to spend some linux shell time with you!",
+        "Blueee... I am blue... yay!",
       src: sprite_src_blue,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
