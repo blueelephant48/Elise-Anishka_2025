@@ -32,7 +32,7 @@ class GameLevelSpace {
         src: sprite_src_chillguy,
         SCALE_FACTOR: CHILLGUY_SCALE_FACTOR,
         STEP_FACTOR: 1000,
-        ANIMATION_RATE: 50,
+        ANIMATION_RATE: 10,
         INIT_POSITION: { x: 0, y: height - (height/CHILLGUY_SCALE_FACTOR) }, 
         pixels: {height: 384, width: 512},
         orientation: {rows: 3, columns: 4 },
@@ -45,7 +45,6 @@ class GameLevelSpace {
     };
 
 
-    // NPC data for Tux 
     const sprite_src_ditto = path + "/images/gamify/ditto.png"; // be sure to include the path
     const sprite_data_ditto = {
         id: 'Ditto',
@@ -63,7 +62,7 @@ class GameLevelSpace {
         left: {row: 1, start: 0, columns: 4 },
         right: {row: 2, start: 0, columns: 4 },
         up: {row: 3, start: 0, columns: 4 },
-        hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+        hitbox: { widthPercentage: 0.35, heightPercentage: 0.15 },
       };
 
 
@@ -79,7 +78,7 @@ class GameLevelSpace {
         pixels: {height: 301, width: 801},
         INIT_POSITION: { x: (width / 2), y: (height / 2)},
         orientation: {rows: 1, columns: 4 },
-        down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
+        down: {row: 0, start: 0, columns: 3, },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.1 },
         // GitHub command quiz 
         quiz: { 
