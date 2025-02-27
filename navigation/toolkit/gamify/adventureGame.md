@@ -116,12 +116,6 @@ permalink: /gamify/adventureGame
 </div>
 
 <div id="stats-container" style="position: absolute; top: 120px; left: 10px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 5px;">
-    <div>Balance: <span id="balance">0</span></div>
-    <div>Chat Score: <span id="chatScore">0</span></div>
-    <div>Questions Answered: <span id="questionsAnswered">0</span></div>
-    
-    <!-- NPC Tracker Button added below the stats -->
-    <button id="npcTrackerButton">NPC Tracker</button>
 </div>
 
 <div id="gameContainer">
@@ -130,10 +124,6 @@ permalink: /gamify/adventureGame
 </div>
 
 <!-- NPC Tracker Pop-up -->
-<div id="npcTrackerPopup">
-    <h2>NPCs Met:</h2>
-    <ul id="npcTrackerList"></ul>
-</div>
 
 <div id="hint-box" class="hidden">
     <p id="hint-text"></p>
