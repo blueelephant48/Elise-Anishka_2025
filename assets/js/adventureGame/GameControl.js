@@ -3,6 +3,8 @@ import GameLevelWater from './GameLevelWater.js';
 import GameLevelDesert from './GameLevelDesert.js';
 import GameLevelSpace from './GameLevelSpace.js';
 import { getStats } from "./StatsManager.js";
+import Npc from './Npc.js';
+import Player from './Player.js';
 
 
 
@@ -76,7 +78,17 @@ const GameControl = {
         // Instantiate the game objects
         for (let object of gameInstance.objects) {
             if (!object.data) object.data = {};
-            new object.class(object.data);
+            const newObject = new object.class(object.data);
+
+            if (newObject instanceof Player) {
+                GameEnv.player = newObject;
+                console.log("Yay player assigned to GameEnv:", GameEnv.player);
+            }
+            GameEnv.gameObjects.push(newObject);
+        }
+
+        if (!GameEnv.player) {
+            console.error("Wuh-oh, no player is in this level... gotta fix something!");
         }
         // Start the game loop
         this.gameLoop();
@@ -92,6 +104,10 @@ const GameControl = {
         // Nominal case: update the game objects 
         GameEnv.clear();
         for (let object of GameEnv.gameObjects) {
+            if (object instanceof Player) {
+                object.update();
+            }
+
             object.update();  // Update the game objects
         }
         this.handleLevelStart();
