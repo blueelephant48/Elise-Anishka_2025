@@ -28,9 +28,10 @@ class Player extends Character {
         // this.x = data?.INIT_POSITION?.x || 0;
         // this.y = data?.INIT_POSITION?.y || 0;
         this.bindMovementKeyListners();
-        this.xVelocity = 5;  // Increase from 5 to 8 (or adjust as needed)
-        this.yVelocity = 5;
+        this.xVelocity = 1;  // Increase from 5 to 8 (or adjust as needed)
+        this.yVelocity = 1;
         this.velocity = { x: 0, y: 0 };
+        GameEnv.player = this;
 
     }
 
