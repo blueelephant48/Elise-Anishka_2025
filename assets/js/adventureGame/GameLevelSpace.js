@@ -21,9 +21,10 @@ class GameLevelSpace {
       pixels: { height: 580, width: 1038 },
     };
 
-    // Player data for Chillguy
-    const sprite_src_chillguy = path + "/images/gamify/chillguy.png"; // be sure to include the path
-    const CHILLGUY_SCALE_FACTOR = 5;
+    // Player data for Adventurer
+    const sprite_src_chillguy =
+      path + "/images/gamify/adventurer_sprite_sheet.png"; // be sure to include the path
+    const CHILLGUY_SCALE_FACTOR = 4.5;
     const sprite_data_chillguy = {
       id: "Chill Guy",
       greeting:
@@ -31,14 +32,14 @@ class GameLevelSpace {
       src: sprite_src_chillguy,
       SCALE_FACTOR: CHILLGUY_SCALE_FACTOR,
       STEP_FACTOR: 1000,
-      ANIMATION_RATE: 25,
+      ANIMATION_RATE: 75,
       INIT_POSITION: { x: 0, y: height - height / CHILLGUY_SCALE_FACTOR },
-      pixels: { height: 384, width: 512 },
-      orientation: { rows: 3, columns: 4 },
-      down: { row: 0, start: 0, columns: 3 },
-      left: { row: 2, start: 0, columns: 3 },
-      right: { row: 1, start: 0, columns: 3 },
-      up: { row: 3, start: 0, columns: 3 },
+      pixels: { height: 1016, width: 1016 },
+      orientation: { rows: 4, columns: 4 },
+      down: { row: 2, start: 0, columns: 4 },
+      left: { row: 0, start: 0, columns: 4 },
+      right: { row: 1, start: 0, columns: 4 },
+      up: { row: 3, start: 0, columns: 4 },
       hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
       keypress: { up: 87, left: 65, down: 83, right: 68 }, // W, A, S, D
     };
@@ -46,29 +47,28 @@ class GameLevelSpace {
     // NPC data for Tux
     const sprite_src_ditto = path + "/images/gamify/ditto.png"; // be sure to include the path
     const sprite_data_ditto = {
-        id: 'Ditto',
-        name: 'Ditto',
-        greeting: "Hi! I'm Ditto! Nice to meet you!",
-        hintKey: 90,
-        hint: "Planets are Indeed very large aNd you can see some by looKing at the night sky. By the way, my favorite letter is M!",
-        src: sprite_src_ditto,
-        SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
-        ANIMATION_RATE: 50,
-        pixels: {height: 256, width: 256},
-        INIT_POSITION: { x: (width / 4), y: (height / 4)},
-        orientation: {rows: 4, columns: 4 },
-        down: {row: 0, start: 0, columns: 4 },
-        left: {row: 1, start: 0, columns: 4 },
-        right: {row: 2, start: 0, columns: 4 },
-        up: {row: 3, start: 0, columns: 4 },
-        hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
-      };
+      id: "Ditto",
+      name: "Ditto",
+      greeting: "Hi! I'm Ditto! Nice to meet you!",
+      hintKey: 90,
+      hint: "Planets are Indeed very large aNd you can see some by looKing at the night sky. By the way, my favorite letter is M!",
+      src: sprite_src_ditto,
+      SCALE_FACTOR: 8, // Adjust this based on your scaling needs
+      ANIMATION_RATE: 50,
+      pixels: { height: 256, width: 256 },
+      INIT_POSITION: { x: width / 4, y: height / 4 },
+      orientation: { rows: 4, columns: 4 },
+      down: { row: 0, start: 0, columns: 4 },
+      left: { row: 1, start: 0, columns: 4 },
+      right: { row: 2, start: 0, columns: 4 },
+      up: { row: 3, start: 0, columns: 4 },
+      hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+    };
 
     const sprite_src_orange = path + "/images/gamify/Orange_Meteor.png"; // be sure to include the path
     const sprite_data_orange = {
       id: "Orange_Meteor",
-      greeting:
-        "Zzzz... So sleepy... oh, hi Ditto!",
+      greeting: "Zzzz... So sleepy... oh, hi Ditto!",
       src: sprite_src_orange,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
@@ -82,11 +82,10 @@ class GameLevelSpace {
     const sprite_src_pink = path + "/images/gamify/Pink_meteor.png"; // be sure to include the path
     const sprite_data_pink = {
       id: "Pink_Meteor",
-      name: 'Pink Meteor',
+      name: "Pink Meteor",
       hintKey: 77,
       hint: "I am four letters long, I can be seen in the sky, I am the ocean & I am the C.",
-      greeting:
-        "Hiiiiii!!!",
+      greeting: "Hiiiiii!!!",
       src: sprite_src_pink,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
@@ -100,8 +99,7 @@ class GameLevelSpace {
     const sprite_src_purple = path + "/images/gamify/Purple_meteor.png"; // be sure to include the path
     const sprite_data_purple = {
       id: "Purple_Meteor",
-      greeting:
-        "Hello!",
+      greeting: "Hello!",
       src: sprite_src_purple,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
@@ -116,11 +114,10 @@ class GameLevelSpace {
     const sprite_src_blue = path + "/images/gamify/blue_meteor.png"; // be sure to include the path
     const sprite_data_blue = {
       id: "Blue_Meteor",
-      name: 'Blue Meteor',
+      name: "Blue Meteor",
       hintKey: 67,
       hint: "Press b to finish the game! Byeee!!!",
-      greeting:
-        "Blueee... I am blue... yay!",
+      greeting: "Blueee... I am blue... yay!",
       src: sprite_src_blue,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
