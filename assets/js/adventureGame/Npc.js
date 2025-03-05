@@ -66,7 +66,7 @@ class Npc extends Character {
     
                     console.log(`Checking distance to ${this.name}: ${distance}`);
     
-                    if (distance <= 100) {
+                    if (distance <= 150) {
                         names.push(player.name || "Player");
     
                         const hintBox = document.getElementById("hint-box");
