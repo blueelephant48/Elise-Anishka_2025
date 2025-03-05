@@ -35,13 +35,13 @@ class Player extends Character {
 
     }
 
-    // update() {
-    //     this.x += this.velocity.x;
-    //     this.y += this.velocity.y;
+    update() {
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
 
-    //     console.log(`Player position updated: (${this.x}, ${this.y})`);
-    //     this.draw();
-    // }
+        console.log(`Player position updated: (${this.x}, ${this.y})`);
+        this.draw();
+    }
 
     /**
      * Binds key event listeners to handle object movement.
