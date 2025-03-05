@@ -53,43 +53,43 @@ class Npc extends Character {
      * Handle proximity interaction and share a quiz.
      */
     handleKeyInteract() {
-        var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
-        var npc = this;
-        var names = [];
-    
-        if (players.length > 0 && npc) {
-            players.forEach(player => {
-                if (player.position.x !== undefined && player.position.y !== undefined) {
-                    var distance = Math.sqrt(
-                        Math.pow(player.position.x - npc.position.x, 2) + Math.pow(player.position.y - npc.position.y, 2)
-                    );
-    
-                    console.log(`Checking distance to ${this.name}: ${distance}`);
-    
-                    if (distance <= 100) {
-                        names.push(player.name || "Player");
-    
-                        const hintBox = document.getElementById("hint-box");
-                        const hintText = document.getElementById("hint-text");
-    
-                        if (hintBox && hintText) {
-                            hintText.innerText = `${this.name || "NPC"}: "${this.hint}"`;
-                            hintText.classList.remove("hidden");
-                            hintBox.style.display = "block";
-    
-                            document.getElementById("hint-close").onclick = () => {
-                                hintBox.classList.add("hidden");
-                                hintBox.style.display = "none";
-                            };
-                        }
-    
-                        console.log(`${this.name} interacted with: "${player.name || "Player"}"`);
-                    } else {
-                        console.warn(` Player too far from ${this.name} (${distance}px away)`);
-                    }
-                }
-            });
+        if (hintBox && hintText) {
+            hintText.innerText = `${this.name || "NPC"}: "${this.hint}"`;
+            hintText.classList.remove("hidden");
+            hintBox.style.display = "block";
+
+            document.getElementById("hint-close").onclick = () => {
+                hintBox.classList.add("hidden");
+                hintBox.style.display = "none";
+            };
         }
+        // var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
+        // var npc = this;
+        // var names = [];
+    
+        // if (players.length > 0 && npc) {
+        //     players.forEach(player => {
+        //         if (player.position.x !== undefined && player.position.y !== undefined) {
+        //             var distance = Math.sqrt(
+        //                 Math.pow(player.position.x - npc.position.x, 2) + Math.pow(player.position.y - npc.position.y, 2)
+        //             );
+    
+        //             console.log(`Checking distance to ${this.name}: ${distance}`);
+    
+        //             if (distance <= 100) {
+        //                 names.push(player.name || "Player");
+    
+        //                 const hintBox = document.getElementById("hint-box");
+        //                 const hintText = document.getElementById("hint-text");
+
+    
+        //                 console.log(`${this.name} interacted with: "${player.name || "Player"}"`);
+        //             } else {
+        //                 console.warn(` Player too far from ${this.name} (${distance}px away)`);
+        //             }
+        //         }
+        //     });
+        // }
     }
 
 }
