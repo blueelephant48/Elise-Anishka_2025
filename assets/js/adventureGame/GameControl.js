@@ -118,7 +118,7 @@ const GameControl = {
     handleLevelStart: function() {
         // First time message for level 0, delay 10 passes
         if (this.currentLevelIndex === 0 && this.currentPass === 10) {
-            alert("Wecome to our space adventure game! In this game, you will adventure around space and interact with other characters by using keyboard keys. We hope you enjoy!");
+            alert("Wecome to our space adventure game! In this game, you will adventure around space and interact with other characters by using keyboard keys. We hope you enjoy! HINT:To start, pay close attention to what the orange meteor is saying...");
         }
         // Recursion tracker
         this.currentPass++;

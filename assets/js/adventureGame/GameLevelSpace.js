@@ -68,7 +68,7 @@ class GameLevelSpace {
     const sprite_src_orange = path + "/images/gamify/Orange_Meteor.png"; // be sure to include the path
     const sprite_data_orange = {
       id: "Orange_Meteor",
-      greeting: "Zzzz... So sleepy... oh, hi Ditto!",
+      greeting: "ZZZZ... So sleepy... oh, hi Ditto!",
       src: sprite_src_orange,
       SCALE_FACTOR: 10, // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
