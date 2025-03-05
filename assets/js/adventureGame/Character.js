@@ -122,6 +122,12 @@ class Character extends GameObject {
       frameX = (directionData.start + this.frameIndex) * frameWidth;
       frameY = directionData.row * frameHeight;
 
+      // ✅ Ensure correct positioning
+      this.canvas.style.left = `${this.position.x}px`;
+      this.canvas.style.top = `${GameEnv.top + this.position.y}px`;
+
+      // 🔹 Debugging log
+      console.log(`Drawing ${this.canvas.id} at (${this.position.x}, ${this.position.y})`);
       // Set up the canvas dimensions and styles
       this.canvas.width = frameWidth;
       this.canvas.height = frameHeight;
