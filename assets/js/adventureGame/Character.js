@@ -60,12 +60,8 @@ class Character extends GameObject {
     this.canvas.height = data.pixels?.height || 0;
     this.hitbox = data?.hitbox || {};
     this.ctx = this.canvas.getContext("2d");
-    // document.getElementById("gameContainer").appendChild(this.canvas);
+    document.getElementById("gameContainer").appendChild(this.canvas);
 
-
-    if (!document.getElementById(this.canvas.id)) {
-      document.getElementById("gameContainer").appendChild(this.canvas);
-    }
     // Set initial object properties
     this.x = 0;
     this.y = 0;
@@ -127,10 +123,10 @@ class Character extends GameObject {
       frameX = (directionData.start + this.frameIndex) * frameWidth;
       frameY = directionData.row * frameHeight;
 
-      // Ensure correct positioning
-      this.canvas.style.position = "absolute";
-      this.canvas.style.left = `${this.position.x}px`;
-      this.canvas.style.top = `${GameEnv.top + this.position.y}px`;
+      // // Ensure correct positioning
+      // this.canvas.style.position = "absolute";
+      // this.canvas.style.left = `${this.position.x}px`;
+      // this.canvas.style.top = `${GameEnv.top + this.position.y}px`;
 
       // Debugging log
       console.log(`Drawing ${this.canvas.id} at (${this.position.x}, ${this.position.y})`);
