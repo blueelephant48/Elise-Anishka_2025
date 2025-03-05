@@ -55,20 +55,23 @@ class Npc extends Character {
     handleKeyInteract() {
         var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
         var npc = this;
-        var names = [];
     
         if (players.length > 0 && npc) {
             players.forEach(player => {
-                if (player.x !== undefined && player.y !== undefined) {
-                    var distance = Math.sqrt(
-                        Math.pow(player.x - npc.x, 2) + Math.pow(player.y - npc.y, 2)
-                    );
+                if (player.position?.x !== undefined && player.position?.y !== undefined) {
+                    // Get actual hitbox dimensions
+                    const npcHitboxWidth = npc.pixels.width * (npc.hitbox?.widthPercentage || 1);
+                    const npcHitboxHeight = npc.pixels.height * (npc.hitbox?.heightPercentage || 1);
     
-                    console.log(`Checking distance to ${this.name}: ${distance}`);
+                    // Adjust hitbox position
+                    const npcHitboxX = npc.position.x - npcHitboxWidth / 2;
+                    const npcHitboxY = npc.position.y - npcHitboxHeight / 2;
     
-                    if (distance <= 100) {
-                        names.push(player.name || "Player");
+                    // Check if player is inside the hitbox
+                    const withinX = player.position.x >= npcHitboxX && player.position.x <= npcHitboxX + npcHitboxWidth;
+                    const withinY = player.position.y >= npcHitboxY && player.position.y <= npcHitboxY + npcHitboxHeight;
     
+                    if (withinX && withinY) {
                         const hintBox = document.getElementById("hint-box");
                         const hintText = document.getElementById("hint-text");
     
@@ -85,12 +88,11 @@ class Npc extends Character {
     
                         console.log(`${this.name} interacted with: "${player.name || "Player"}"`);
                     } else {
-                        console.warn(` Player too far from ${this.name} (${distance}px away)`);
+                        console.warn(`Player is outside ${this.name}'s hitbox.`);
                     }
                 }
             });
         }
     }
-
 }
 export default Npc;
