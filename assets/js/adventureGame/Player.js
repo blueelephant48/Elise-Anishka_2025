@@ -36,8 +36,8 @@ class Player extends Character {
     }
 
     update() {
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
 
         console.log(`Player position updated: (${this.x}, ${this.y})`);
         this.draw();
