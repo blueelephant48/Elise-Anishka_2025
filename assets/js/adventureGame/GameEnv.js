@@ -127,6 +127,8 @@ class GameEnv {
      */
     static clear() {
         this.ctx.clearRect(0, 0, this.innerWidth, this.innerHeight);
+        this.canvas.width = this.innerWidth; 
+        this.canvas.height = this.innerHeight;
     }
 }
 
