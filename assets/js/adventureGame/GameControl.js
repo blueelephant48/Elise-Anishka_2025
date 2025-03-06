@@ -154,6 +154,7 @@ const GameControl = {
         document.addEventListener('keydown', (event) => {
             if (event.key === 'b') {
                 GameEnv.continueLevel = false;
+                GameControl.stopTimer();
             }
         });
     },
