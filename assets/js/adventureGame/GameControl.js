@@ -74,7 +74,7 @@ const GameControl = {
     },
     
     loadLevelObjects: function(gameInstance) {
-        this.initStatsUI();
+        // this.initStatsUI();
         // Instantiate the game objects
         for (let object of gameInstance.objects) {
             if (!object.data) object.data = {};
